@@ -1,3 +1,9 @@
-<p>
-  staff works!
-</p>
+<h2>{{staff.name}} Details</h2>
+<div><span>id: </span>{{staff.id}}</div>
+<div><span>name: </span>{{staff.name}}</div>
+
+<div>
+  <label>name:
+    <input [(ngModel)]="staff.name" placeholder="name"/>
+  </label>
+</div>
