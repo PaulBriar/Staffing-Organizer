@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Staff } from '../staff';
+import { STAFFLIST } from '../mock-staff';
 
 @Component({
   selector: 'app-staff',
@@ -8,14 +9,17 @@ import { Staff } from '../staff';
 })
 export class StaffComponent implements OnInit {
 
-  staff: Staff = {
-    id: 1,
-    name: "Mike",
-  };
+  staff = STAFFLIST;
+  selectedStaff: Staff;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  onSelect(member: Staff): void {
+    this.selectedStaff = member;
+  }
+
 
 }

@@ -1,9 +1,20 @@
-<h2>{{staff.name}} Details</h2>
-<div><span>id: </span>{{staff.id}}</div>
-<div><span>name: </span>{{staff.name}}</div>
+<h2>My Staff</h2>
+<ul class="staff">
+  <li *ngFor="let member of staff" (click)="onSelect(member)" [class.selected]="member === selectedStaff">
+    <span class="badge">{{member.id}}</span> {{member.name}}
+  </li>
+</ul>
 
-<div>
-  <label>name:
-    <input [(ngModel)]="staff.name" placeholder="name"/>
-  </label>
+<div *ngIf="selectedStaff">
+
+  <h2>{{selectedStaff.name}} Details</h2>
+  <div><span>id: </span>{{selectedStaff.id}}</div>
+  <div><span>name: </span>{{selectedStaff.name}}</div>
+
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedStaff.name" placeholder="name"/>
+    </label>
+  </div>
+
 </div>
