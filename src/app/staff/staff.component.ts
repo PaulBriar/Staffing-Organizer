@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Staff } from '../staff';
-import { STAFFLIST } from '../mock-staff';
+import { StaffService } from '../staff.service';
 
 @Component({
   selector: 'app-staff',
@@ -9,12 +9,18 @@ import { STAFFLIST } from '../mock-staff';
 })
 export class StaffComponent implements OnInit {
 
-  staff = STAFFLIST;
+  staff: Staff[];
   selectedStaff: Staff;
 
-  constructor() { }
+  constructor(private staffService: StaffService) { }
+
+  getStaff(): void {
+    this.staffService.getStaff()
+      .subscribe(staff => this.staff = staff);
+  }
 
   ngOnInit() {
+    this.getStaff();
   }
 
   onSelect(member: Staff): void {
