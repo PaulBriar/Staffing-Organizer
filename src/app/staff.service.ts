@@ -7,6 +7,7 @@ import { MessageService } from './message.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class StaffService {
   getStaff(): Observable<Staff[]> {
     //TODO: send the message _after_ fetching the staff
